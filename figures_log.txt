@@ -1,0 +1,14 @@
+Fig 2a interior equilibrium (D,P,A) = (0.481, 0.296, 0.222), repelling
+Fig 2b interior equilibrium (D,P,A) = (0.333, 0.333, 0.333), attracting
+Fig 2a RK4 step check (raw proposals): 0 negative proposals (0 required); max drift of the coordinate sum 3.3e-16 (gate 1e-9); smallest proposed component 3.2e-101; components clipped at 1e-300: 0
+Fig 2b RK4 step check (raw proposals): 0 negative proposals (0 required); max drift of the coordinate sum 2.2e-16 (gate 1e-9); smallest proposed component 2.5e-02; components clipped at 1e-300: 0
+Figure 3 regenerated with the original deterministic model and parameters.
+Threshold cP* = 0.500000000000
+Panel c: H = -0.400000000000; coalition (D,P,A) = 0.000000000000, 0.411764705882, 0.588235294118
+Panel d: H = 0.400000000000; interior (D,P,A) = 0.078431372549, 0.333333333333, 0.588235294118
+Panel d: saddle coalition (D,P,A) = 0.000000000000, 0.230769230769, 0.769230769231
+Checks passed: signs, equilibrium residuals, direct linear solve.
+RK4 step check (raw proposals): 0 negative proposals (0 required); max drift of the coordinate sum 2.2e-16 (gate 1e-9); smallest proposed component 1.3e-08; components clipped at 1e-300: 0.
+Integration: fixed-step RK4, dt=0.01; horizons 60 (c), 120 (d).
+Plot geometry is subsampled by arc length only; computed trajectories are unchanged. 
+Wrote fig_regimes.pdf and fig_accommodation.pdf to /Users/chadtopaz/Documents/Research/Current/2026 Democratic Backsliding/npj Revision 1 

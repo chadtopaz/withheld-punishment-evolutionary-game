@@ -1,0 +1,21 @@
+Exploitation regime (Fig. 2a): x* = (0.481, 0.296, 0.222); payoffs at x* = (-0.185, -0.185, -0.185)
+  tr J = 0.1852 (formula (a_P a_A a_D - b_P b_A b_D)/S gives 0.1852); det J = 0.4280 (formula S x_D x_P x_A gives 0.4280); focus: yes
+
+Accommodation regime, 20000 random parameter draws:
+  interior equilibrium exists iff H > 0: verified; 4921 draws with H > 0
+  closed form (N_D, N_P, N_A)/S matches direct solve: max error 7.1e-16 (gate 1e-8)
+  tr J = -pibar(x*): max error 3.3e-10;  det J = S x_D x_P x_A: max error 6.3e-10 (gate 1e-6, central differences with h = 1e-6)
+  all interior equilibria are sinks: TRUE (4259 foci, 662 nodes)
+  disruptor share at coexistence below coalition value in all cases: TRUE
+  transverse exponent of D at coalition = H/(c_P + c_A): max error 1.8e-15 (gate 1e-10)
+  draws in the previously open band (H < 0 and c_P <= b_D): 5075
+  all exact-identity gates passed
+
+Global convergence (6 random initial conditions per case; finite-time diagnostics, loosely gated):
+  H > 0 (coexistence)              H = +0.40  target = (0.078, 0.333, 0.588)  max deviation = 6.0e-15  (gate 1e-6)
+  band: H < 0, c_P <= b_D          H = -0.40  target = (0.000, 0.412, 0.588)  max deviation = 6.8e-15  (gate 1e-6)
+  H = 0 exactly                    H = +0.00  target = (0.000, 0.333, 0.667)  max deviation = 2.2e-04  (non-hyperbolic: convergence is algebraic, so slower; gate 1e-2)
+                                   algebraic rate check: x_D(T) T S0/L0 at T = 3000 is 0.973, 0.980, 0.899, 0.992, 0.982, 0.974 (1 expected; gate 0.8 to 1.05)
+  strong accommodation c_P > b_D   H = -3.00  target = (0.000, 0.667, 0.333)  max deviation = 4.3e-15  (gate 1e-6)
+  RK4 step check over all integrations: 0 steps with a negative proposal (0 required), max drift of the coordinate sum before renormalization 3.3e-16 (gate 1e-9), smallest proposed component 2.0e-263, components clipped at 1e-300: 0
+All checks passed.

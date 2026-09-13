@@ -1,0 +1,43 @@
+Recorded: 2026-09-13 06:35:00 EDT 
+
+R.version.string: R version 4.5.3 (2026-03-11) 
+Platform: aarch64-apple-darwin20 
+Operating system: Darwin 25.5.0 ( Darwin Kernel Version 25.5.0: Tue Jun  9 22:28:24 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T6020 )
+Machine: arm64 
+Cores available (parallel::detectCores()): 24 
+cairo graphics support: TRUE 
+
+C++ compiler used by Rcpp (R CMD config CXX):
+  clang++ -arch arm64 -std=gnu++17 
+  Apple clang version 21.0.0 (clang-2100.1.1.101) 
+
+Package versions:
+  Rcpp      1.1.0
+  future    1.70.0
+  furrr     0.4.0
+  parallel  4.5.3
+
+R version 4.5.3 (2026-03-11)
+Platform: aarch64-apple-darwin20
+Running under: macOS Tahoe 26.5.2
+
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] Rcpp_1.1.0    furrr_0.4.0   future_1.70.0
+
+loaded via a namespace (and not attached):
+ [1] digest_0.6.39     codetools_0.2-20  magrittr_2.0.4    parallel_4.5.3    lifecycle_1.0.5  
+ [6] cli_3.6.5         parallelly_1.46.1 vctrs_0.7.1       compiler_4.5.3    purrr_1.2.2      
+[11] globals_0.19.1    rstudioapi_0.17.1 tools_4.5.3       listenv_0.10.0    rlang_1.1.7      

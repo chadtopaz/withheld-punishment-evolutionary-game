@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this code or these simulation outputs, please cite the archived release (DOI below) and the accompanying article."
+type: software
+title: "Code and simulation outputs for: How Withheld Punishment Sustains Anti-Democratic Behavior in an Evolutionary Game"
+version: 1.0.0
+date-released: 2026-09-12
+license: MIT
+authors:
+  - family-names: Topaz
+    given-names: Chad M.
+    affiliation: "Williams College; QSIDE Institute; University of Colorado Boulder"
+repository-code: "https://github.com/chadtopaz/withheld-punishment-evolutionary-game"
+doi: 10.5281/zenodo.XXXXXXX
+keywords:
+  - evolutionary game theory
+  - replicator dynamics
+  - cyclic dominance
+  - heteroclinic cycle
+  - antisocial punishment
+  - democratic backsliding
+  - R
+abstract: >-
+  R scripts, generated C++ simulator source, reference outputs, and the standalone
+  LaTeX source of Figure 1 for the article "How Withheld Punishment Sustains
+  Anti-Democratic Behavior in an Evolutionary Game". The scripts reproduce Figures
+  2-4, the numerical checks of Propositions 1 and 2, and every number quoted in the
+  article's Section 4.3 (finite-population simulations of the resurgence cycle).

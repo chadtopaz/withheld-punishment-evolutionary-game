@@ -1,0 +1,5 @@
+# MD5 checksums of the deterministic outputs of finite_population.R (author's run).
+# finitepop_runs.csv is not listed: its 'elapsed' column (wall time per run) changes from run to run; all other columns reproduce exactly.
+# Verify with: md5sum -c checksums.txt   (macOS: md5 -r <file>)
+d4a32eae406aa4594ab605f32bbff50f  results_finitepop.tex
+e023003bade0787be1cfaeea2e99280e  finitepop_summary.csv

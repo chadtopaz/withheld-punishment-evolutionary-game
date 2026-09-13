@@ -1,0 +1,85 @@
+R version 4.5.3 (2026-03-11) 
+Rcpp 1.1.0, future 1.70.0, furrr 0.4.0
+Parallel workers: 23 
+Interior equilibrium x* = (0.481, 0.296, 0.222); dpi_max = 3.50; replicator time per generation = 0.2857
+Simulator: C++ (Rcpp), compiled in 1 s
+
+Checks of the event sampler:
+  six transition probabilities, pair decomposition vs definition, 307 states x 4 values of mu: max error R 6.9e-17, C++ 6.9e-17
+  Monte Carlo, C++ simulator, 20000 single-change runs at N = 10, n = (3, 4, 3), mu = 0.05:
+    transition frequencies vs r_ij/q: max |z| = 1.96;  mean holding time 2.882 steps vs 1/q = 2.883 steps (z = -0.09)
+  same seed, C++ vs R (N = 60, mu = 0.01, 300 generations, shares sampled once per generation): 3114 vs 3114 changes, 4 vs 4 episodes, max |difference| in sampled shares 0.0e+00 (0 expected)
+
+Experiment A: N in {100, 300, 1000, 3000, 10000, 30000, 1e+05}, 1000 runs each (mu = 0), run until one strategy holds the whole population
+Experiment B: N in {100, 1000, 10000, 1e+05}, mu in {1e-05, 1e-04, 0.001, 0.01}, 20 runs each of 2000 replicator time units (7000 generations)
+7320 runs in total, longest first, in 377 bundles of roughly equal work; one bundle at a time per worker
+Simulations finished in 52 s
+Simulator used by the workers: C++ in 7320 runs 
+
+Experiment A (mu = 0): 7000 of 7000 runs ended with one strategy holding the whole population; 0 ended before any strategy was lost
+  N =    100: median first loss    8.7 (IQR   6.2- 11.7) replicator time; lost first D/P/A = 0.10/0.55/0.36; freezes at D/P/A = 0.53/0.35/0.11; not absorbed: 0
+              disruptor-majority episodes before freezing: median 0, mean 0.48, none in 53% of runs, at most one in 99% of runs
+  N =    300: median first loss   17.2 (IQR  13.1- 21.8) replicator time; lost first D/P/A = 0.07/0.68/0.26; freezes at D/P/A = 0.66/0.26/0.08; not absorbed: 0
+              disruptor-majority episodes before freezing: median 1, mean 0.88, none in 22% of runs, at most one in 91% of runs
+  N =   1000: median first loss   27.5 (IQR  23.2- 33.7) replicator time; lost first D/P/A = 0.05/0.74/0.21; freezes at D/P/A = 0.73/0.21/0.05; not absorbed: 0
+              disruptor-majority episodes before freezing: median 1, mean 1.19, none in 4% of runs, at most one in 77% of runs
+  N =   3000: median first loss   38.3 (IQR  33.0- 45.0) replicator time; lost first D/P/A = 0.04/0.80/0.16; freezes at D/P/A = 0.80/0.16/0.04; not absorbed: 0
+              disruptor-majority episodes before freezing: median 1, mean 1.49, none in 0% of runs, at most one in 51% of runs
+  N =  10000: median first loss   48.1 (IQR  42.5- 53.7) replicator time; lost first D/P/A = 0.03/0.84/0.12; freezes at D/P/A = 0.84/0.12/0.04; not absorbed: 0
+              disruptor-majority episodes before freezing: median 2, mean 1.65, none in 0% of runs, at most one in 35% of runs
+  N =  30000: median first loss   57.1 (IQR  51.5- 63.9) replicator time; lost first D/P/A = 0.02/0.89/0.10; freezes at D/P/A = 0.88/0.10/0.02; not absorbed: 0
+              disruptor-majority episodes before freezing: median 2, mean 1.80, none in 0% of runs, at most one in 20% of runs
+  N = 100000: median first loss   66.4 (IQR  60.3- 73.4) replicator time; lost first D/P/A = 0.01/0.89/0.09; freezes at D/P/A = 0.89/0.09/0.01; not absorbed: 0
+              disruptor-majority episodes before freezing: median 2, mean 1.90, none in 0% of runs, at most one in 11% of runs
+
+Experiment B (mu > 0), T = 2000 replicator time units per run:
+  N =    100, mu = 1e-05:    15 episodes in 20 runs; pooled time per resurgence  2666.7; share of time with x_A > 1/2: 0.20
+  N =   1000, mu = 1e-05:    77 episodes in 20 runs; pooled time per resurgence   519.5; share of time with x_A > 1/2: 0.43
+  N =  10000, mu = 1e-05:   410 episodes in 20 runs; pooled time per resurgence    97.6; share of time with x_A > 1/2: 0.45
+  N = 100000, mu = 1e-05:   943 episodes in 20 runs; pooled time per resurgence    42.4; share of time with x_A > 1/2: 0.40
+  N =    100, mu = 0.0001:    70 episodes in 20 runs; pooled time per resurgence   571.4; share of time with x_A > 1/2: 0.40
+  N =   1000, mu = 0.0001:   437 episodes in 20 runs; pooled time per resurgence    91.5; share of time with x_A > 1/2: 0.45
+  N =  10000, mu = 0.0001:  1192 episodes in 20 runs; pooled time per resurgence    33.6; share of time with x_A > 1/2: 0.39
+  N = 100000, mu = 0.0001:  1339 episodes in 20 runs; pooled time per resurgence    29.9; share of time with x_A > 1/2: 0.37
+  N =    100, mu = 0.001:   524 episodes in 20 runs; pooled time per resurgence    76.3; share of time with x_A > 1/2: 0.42
+  N =   1000, mu = 0.001:  1636 episodes in 20 runs; pooled time per resurgence    24.4; share of time with x_A > 1/2: 0.35
+  N =  10000, mu = 0.001:  1917 episodes in 20 runs; pooled time per resurgence    20.9; share of time with x_A > 1/2: 0.33
+  N = 100000, mu = 0.001:  1929 episodes in 20 runs; pooled time per resurgence    20.7; share of time with x_A > 1/2: 0.32
+  N =    100, mu = 0.01:  2160 episodes in 20 runs; pooled time per resurgence    18.5; share of time with x_A > 1/2: 0.27
+  N =   1000, mu = 0.01:  2904 episodes in 20 runs; pooled time per resurgence    13.8; share of time with x_A > 1/2: 0.19
+  N =  10000, mu = 0.01:  3134 episodes in 20 runs; pooled time per resurgence    12.8; share of time with x_A > 1/2: 0.19
+  N = 100000, mu = 0.01:  3113 episodes in 20 runs; pooled time per resurgence    12.8; share of time with x_A > 1/2: 0.19
+  fewest resurgences: 15 in 20 runs at N = 100, mu = 1e-05 (6 of those runs had none); cells below 50 are drawn with open symbols
+
+Changes simulated and wall time per run, by parameter set:
+  B N = 100000 mu = 0.01  :   1.7e+08 changes,     7000.0 generations,   11.41 s per run (max   11.60 s)
+  B N = 100000 mu = 0.001 :  1.04e+08 changes,     7000.0 generations,    6.09 s per run (max    6.49 s)
+  B N = 100000 mu = 0.0001:  7.31e+07 changes,     7000.0 generations,    4.02 s per run (max    4.24 s)
+  B N = 100000 mu = 1e-05 :  5.26e+07 changes,     7000.0 generations,    2.83 s per run (max    2.97 s)
+  B N =  10000 mu = 0.01  :   1.7e+07 changes,     7000.0 generations,    1.08 s per run (max    1.12 s)
+  B N =  10000 mu = 0.001 :  1.02e+07 changes,     7000.0 generations,    0.58 s per run (max    0.61 s)
+  B N =  10000 mu = 0.0001:  6.37e+06 changes,     7000.0 generations,    0.33 s per run (max    0.38 s)
+  A N = 100000 mu = 0     :  6.22e+06 changes,      291.3 generations,    0.42 s per run (max    0.68 s)
+  B N =  10000 mu = 1e-05 :  2.39e+06 changes,     7000.0 generations,    0.13 s per run (max    0.16 s)
+  B N =   1000 mu = 0.01  :  1.67e+06 changes,     7000.0 generations,    0.11 s per run (max    0.12 s)
+  A N =  30000 mu = 0     :  1.63e+06 changes,      250.7 generations,    0.11 s per run (max    0.18 s)
+  B N =   1000 mu = 0.001 :  8.61e+05 changes,     7000.0 generations,    0.05 s per run (max    0.05 s)
+  B N =   1000 mu = 0.0001:  2.41e+05 changes,     7000.0 generations,    0.01 s per run (max    0.02 s)
+  B N =   1000 mu = 1e-05 :  5.29e+04 changes,     7000.0 generations,    0.00 s per run (max    0.01 s)
+  A N =  10000 mu = 0     :   4.6e+05 changes,      212.3 generations,    0.03 s per run (max    0.06 s)
+  B N =    100 mu = 0.01  :  1.27e+05 changes,     7000.0 generations,    0.01 s per run (max    0.01 s)
+  B N =    100 mu = 0.001 :  2.82e+04 changes,     7000.0 generations,    0.00 s per run (max    0.00 s)
+  A N =   3000 mu = 0     :  1.13e+05 changes,      174.0 generations,    0.01 s per run (max    0.02 s)
+  B N =    100 mu = 0.0001:  3.88e+03 changes,     7000.0 generations,    0.00 s per run (max    0.00 s)
+  B N =    100 mu = 1e-05 :  1.25e+03 changes,     7000.0 generations,    0.00 s per run (max    0.00 s)
+  A N =   1000 mu = 0     :  2.86e+04 changes,      130.4 generations,    0.00 s per run (max    0.01 s)
+  A N =    300 mu = 0     :  5.69e+03 changes,       86.7 generations,    0.00 s per run (max    0.01 s)
+  A N =    100 mu = 0     :  1.08e+03 changes,       50.6 generations,    0.00 s per run (max    0.00 s)
+Total: 1.72e+10 changes in 1105 s of worker time; wall time 52 s on 23 workers (parallel efficiency 92%); 1.56e+07 changes per worker-second
+
+Panel (a): seed 2; public lost at 24.5 replicator units; frozen at the all-defender state from 32.8; 1 disruptor-majority episode(s) before freezing
+Deterministic curve, RK4 step check (raw proposals): 0 negative proposals (0 required); max drift of the coordinate sum 2.2e-16 (gate 1e-9); smallest proposed component 9.2e-14; components clipped at 1e-300: 0
+Panel (c): enlargement of run (b) over replicator time 133 to 196; 3 resurgences start inside it
+
+Wrote fig_finitepop.pdf, results_finitepop.tex, finitepop_summary.csv, finitepop_runs.csv to /Users/chadtopaz/Documents/Research/Current/2026 Democratic Backsliding/npj Revision 1 
+Total time 56 s

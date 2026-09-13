@@ -1,0 +1,16 @@
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# LaTeX build files for fig_schematic.tex (the script logs are .txt files and are kept)
+*.aux
+*.log
+*.synctex.gz
+
+# Written only when finite_population.R stops at its censoring gate
+finitepop_runs_INCOMPLETE.csv
+
+# macOS
+.DS_Store
