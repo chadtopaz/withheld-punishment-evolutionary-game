@@ -2,7 +2,7 @@
 
 Chad M. Topaz (Williams College; QSIDE Institute; University of Colorado Boulder)
 
-This repository contains everything needed to reproduce the figures, the numerical checks of the two propositions, and every number quoted in the finite-population section of the article, together with the outputs those scripts produced on the author's machine. The archived release is on Zenodo at `https://doi.org/10.5281/zenodo.XXXXXXX` (version 1.0.0); please cite that DOI and the article.
+This repository contains everything needed to reproduce the figures, the numerical checks of the two propositions, and every number quoted in the finite-population section of the article, together with the outputs those scripts produced on the author's machine. The repository is archived on Zenodo at `https://doi.org/10.5281/zenodo.22735002`, a DOI that represents all versions and resolves to the latest one; please cite that DOI and the article.
 
 The model is a three-strategy replicator system on the simplex, with strategies *defenders* (D), *non-punishing public* (P), and *disruptors* (A). Two payoff regimes are analyzed, exploitation and accommodation, and the resurgence cycle of the exploitation regime is also simulated in finite populations with and without reintroduction of lost strategies.
 
