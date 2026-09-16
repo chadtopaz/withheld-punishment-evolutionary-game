@@ -13,11 +13,11 @@ The model is a three-strategy replicator system on the simplex, with strategies 
 | `verify_propositions.R` | Numerical checks of Proposition 1 (the exploitation regime) and Proposition 2 (the accommodation regime): the closed-form interior equilibrium, the trace and determinant identities, the exclusion threshold, and convergence from random initial conditions. Writes `verify_report.txt`. |
 | `make_figures.R` | Draws Figure 2 (phase portraits of the exploitation regime, `fig_regimes.pdf`), writes `figures_log.txt`, and sources `make_figure3.R`. |
 | `make_figure3.R` | Draws Figure 3 (the accommodation regime: regime diagram, equilibrium branches, and phase portraits, `fig_accommodation.pdf`) and writes `figure3_checks.txt`. Sourced by `make_figures.R`; not run on its own. |
-| `finite_population.R` | The finite-population simulations of Section 4.3. Writes the C++ simulator `finitepop_sim.cpp`, compiles it with Rcpp, runs the two experiments in parallel, and writes Figure 4 (`fig_finitepop.pdf`), the LaTeX macros `results_finitepop.tex`, the tables `finitepop_summary.csv` and `finitepop_runs.csv`, and `finitepop_log.txt`. |
+| `finite_population.R` | The finite-population simulations of the article's Results (the subsection on strategy loss and resurgence in finite populations). Writes the C++ simulator `finitepop_sim.cpp`, compiles it with Rcpp, runs the two experiments in parallel, and writes Figure 4 (`fig_finitepop.pdf`), the LaTeX macros `results_finitepop.tex`, the tables `finitepop_summary.csv` and `finitepop_runs.csv`, and `finitepop_log.txt`. |
 | `session_info.R` | Records the software environment (`session_info.txt`). |
 | `fig_schematic.tex` | Standalone LaTeX/TikZ source of Figure 1 (the invasion relations of the two regimes); `pdflatex fig_schematic.tex` produces `fig_schematic.pdf`. In the article this figure is drawn inside the manuscript source with the same code. |
 | `fig_regimes.pdf`, `fig_accommodation.pdf`, `fig_finitepop.pdf`, `fig_schematic.pdf` | Figures 2, 3, 4, and 1 as produced by the author. |
-| `results_finitepop.tex` | LaTeX macros holding every number from the simulations that is quoted in the article (Section 4.3, Figure 4 caption). |
+| `results_finitepop.tex` | LaTeX macros holding every number from the simulations that is quoted in the article (the finite-population results and the Figure 4 legend). |
 | `finitepop_summary.csv` | One row per experimental cell (population size and reintroduction rate): first-loss statistics, which strategy was lost first, where the population froze, resurgence counts, pooled time per resurgence, and the fraction of time with a disruptor majority. |
 | `finitepop_runs.csv` | One row per simulation run (7,320 rows), the raw results behind the summary. |
 | `finitepop_sim.cpp` | The C++ simulator as written by `finite_population.R`; supplied for reference and regenerated on each run. |
@@ -45,7 +45,7 @@ Start R (or RStudio) with the repository root as the working directory and run t
 ```r
 source("verify_propositions.R")   # numerical checks of Propositions 1 and 2; base R; about one minute
 source("make_figures.R")          # Figures 2 and 3; base R; under one minute
-source("finite_population.R")     # Figure 4 and the Section 4.3 numbers; Rcpp, future, furrr, C++ compiler
+source("finite_population.R")     # Figure 4 and the finite-population numbers; Rcpp, future, furrr, C++ compiler
 source("session_info.R")          # records the software environment
 ```
 
@@ -83,7 +83,7 @@ From `finitepop_log.txt` (the numbers quoted in the article; population size N, 
 
 ## How the outputs enter the article
 
-`results_finitepop.tex` defines LaTeX macros (`\FPextMedianThousand`, `\FPfreezeDThousand`, and so on) that the manuscript reads with `\input{results_finitepop}`, so the numbers in Section 4.3 and the Figure 4 caption are the ones the simulation wrote. Figures 2, 3, and 4 are included as the three figure PDFs. Figure 1 is drawn in the manuscript source with the TikZ code in `fig_schematic.tex`.
+`results_finitepop.tex` defines LaTeX macros (`\FPextMedianThousand`, `\FPfreezeDThousand`, and so on) that the manuscript reads with `\input{results_finitepop}`, so the numbers in the finite-population results and the Figure 4 legend are the ones the simulation wrote. Figures 2, 3, and 4 are included as the three figure PDFs. Figure 1 is drawn in the manuscript source with the TikZ code in `fig_schematic.tex`.
 
 ## License and citation
 

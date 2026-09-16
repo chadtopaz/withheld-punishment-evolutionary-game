@@ -675,16 +675,12 @@ cat(sprintf("Panel (c): enlargement of run (b) over replicator time %d to %d; %d
 if (isTRUE(capabilities("cairo"))) cairo_pdf(file.path(out_dir, "fig_finitepop.pdf"), width = 7.6, height = 7.1, family = "Helvetica") else pdf(file.path(out_dir, "fig_finitepop.pdf"), width = 7.6, height = 7.1)
 layout(matrix(c(1, 2, 3, 3, 4, 5), 3, 2, byrow = TRUE), heights = c(1, 0.85, 1))
 par(cex = 0.83)                                    # the text scale of a two-row layout, kept so the panel text prints as before
-par(oma = c(0, 0, 2.2, 0), mar = c(3.8, 5.0, 3.5, 1), mgp = c(2.6, 0.65, 0), cex.lab = 1.15, cex.axis = 1.05)
+par(oma = c(0, 0, 2.2, 0), mar = c(3.8, 5.0, 2.4, 1), mgp = c(2.6, 0.65, 0), cex.lab = 1.15, cex.axis = 1.05)
 cex_panel <- par("cex")                            # reused for the shared legend
-## two-line heading (title, then run conditions); a one-line heading when sub is NULL
-heading <- function(label, main, sub = NULL) {
-  if (is.null(sub)) {
-    mtext(paste0(label, "  ", main), side = 3, adj = 0, line = 0.6, font = 2, cex = 1.15)
-  } else {
-    mtext(paste0(label, "  ", main), side = 3, adj = 0, line = 2.0, font = 2, cex = 1.15)
-    mtext(sub, side = 3, adj = 0, line = 0.45, cex = 1.0, col = "grey25")
-  }
+## panel label only; the journal requires titles to appear in the figure legend rather
+## than in the image, so the descriptive heading and the run conditions are not drawn
+heading <- function(label, main = NULL, sub = NULL) {
+  mtext(label, side = 3, adj = 0, line = 0.6, font = 2, cex = 1.15)
 }
 
 ## time-series panel; shade = c(t1, t2) marks the interval enlarged in panel (c)
@@ -725,7 +721,7 @@ label_peak <- function(col_name, label, col) {
 }
 label_peak("xD", "D", colD); label_peak("xP", "P", colP); label_peak("xA", "A", colA)
 heading("(c)", "Detail of (b), the shaded interval")
-par(mar = c(3.8, 5.0, 3.5, 1))                     # restore the two-line-heading margin
+par(mar = c(3.8, 5.0, 2.4, 1))                     # restore the panel-label margin
 
 ## (d) first-loss time vs N (mu = 0): median with interquartile range.  The share of runs
 ## that freeze at the all-defender state is reported in the text, not on the panel.

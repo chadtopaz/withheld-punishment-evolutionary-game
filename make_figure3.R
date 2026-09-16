@@ -110,10 +110,11 @@ make_figure3 <- function(out_dir) {
     grid.points(x, y, default.units = "npc", pch = shape, size = unit(size, "pt"),
                 gp = gpar(col = purple, fill = fill, lwd = 1.35))
   }
+  # Panel letter only: the journal requires panel titles to appear in the figure
+  # legend rather than in the image, so the title argument is not drawn.
   heading <- function(letter, title, col, y) {
     left <- if (col == 1) 0.055 else 0.555
     txt(paste0("(", letter, ")"), left, y, size = 14, face = "bold", just = "left")
-    txt(title, left + 0.052, y, size = 13.4, face = "bold", just = "left")
   }
   # Both upper data rectangles have identical physical dimensions.
   A <- list(x = c(0.115, 0.475), y = c(0.615, 0.895),
@@ -186,10 +187,6 @@ make_figure3 <- function(out_dir) {
     heading("b", "Equilibrium defender share", 2, 0.958)
     heading("c", "Defender exclusion", 1, 0.492)
     heading("d", "Three-strategy coexistence", 2, 0.492)
-    txt(expression(list(c[P] == 0.7, H == -0.4)), 0.285, 0.454,
-        size = 12.5, col = muted)
-    txt(expression(list(c[P] == 0.3, H == 0.4)), 0.785, 0.454,
-        size = 12.5, col = muted)
 
     # (a) Exact threshold and the stronger sufficient condition.
     u <- seq(0, 3, length.out = 600)
