@@ -143,8 +143,8 @@ make_figure3 <- function(out_dir) {
   }
   triangle_xy <- function(z, centre) {
     # Physical aspect ratio is one; the triangle is exactly equilateral.
-    tri_width <- 0.345
-    bottom <- 0.083
+    tri_width <- 0.31
+    bottom <- 0.12
     cbind(centre - tri_width / 2 + tri_width * (0.5 * z[, 1] + z[, 3]),
           bottom + tri_width * W / H * sqrt(3) / 2 * z[, 1])
   }
@@ -154,6 +154,13 @@ make_figure3 <- function(out_dir) {
     txt("D", v[1, 1], v[1, 2] + 0.024, size = 14.5, face = "bold")
     txt("P", v[2, 1] - 0.013, v[2, 2] - 0.025, size = 14.5, face = "bold")
     txt("A", v[3, 1] + 0.013, v[3, 2] - 0.025, size = 14.5, face = "bold")
+    # Strategy names at the vertices, as in Figure 2.
+    txt("defenders", v[1, 1], v[1, 2] + 0.048, size = 11.5, face = "italic",
+        just = c("centre", "bottom"))
+    txt("non-punishing\npublic", v[2, 1] - 0.013, v[2, 2] - 0.049, size = 11.5,
+        face = "italic", just = c("centre", "top"))
+    txt("disruptors", v[3, 1] + 0.013, v[3, 2] - 0.049, size = 11.5, face = "italic",
+        just = c("centre", "top"))
     for (j in seq_along(paths)) {
       xy <- triangle_xy(paths[[j]], centre)
       # Draw only geometrically distinct points, preserving the numerical path.
@@ -233,11 +240,7 @@ make_figure3 <- function(out_dir) {
 
     # (c,d) Much larger, aligned simplex portraits.
     phase_panel(paths_c, cP_c, centre = 0.285)
-    phase_panel(paths_d, cP_d, centre = 0.785, coexist = TRUE)
-    # A single shared key replaces six repeated labels around the triangles.
-    txt("D  defenders", .16, .023, size = 12.4)
-    txt("P  non-punishing public", .50, .023, size = 12.4)
-    txt("A  disruptors", .85, .023, size = 12.4)
+    phase_panel(paths_d, cP_d, centre = 0.765, coexist = TRUE)
   }
   # The PDF device is closed on exit even if drawing fails; a device that was
   # open before this function ran is left alone.

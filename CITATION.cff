@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this code or these simulation outputs, please cite the archived release (DOI below) and the accompanying article."
 type: software
 title: "Code and simulation outputs for: How Withheld Punishment Sustains Anti-Democratic Behavior in an Evolutionary Game"
-version: 1.0.2
+version: 1.0.3
 date-released: 2026-09-16
 license: MIT
 authors:
